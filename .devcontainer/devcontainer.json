@@ -1,0 +1,22 @@
+{
+  "name": "TerosHDL Workspace",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "eamodio.gitlens",
+        "teros-technology.teroshdl",
+        "ms-vscode-remote.remote-containers",
+        "ms-azuretools.vscode-containers"
+      ],
+      "settings": {
+        "teroshdl.simulator.ghdl.path": "/usr/bin/ghdl",
+        "python.defaultInterpreterPath": "/opt/venv/bin/python"
+      }
+    }
+  },
+  "remoteUser": "ubuntu"
+}
