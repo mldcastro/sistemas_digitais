@@ -13,7 +13,6 @@
         "ms-azuretools.vscode-containers"
       ],
       "settings": {
-        "teroshdl.simulator.ghdl.path": "/usr/bin/ghdl",
         "python.defaultInterpreterPath": "/opt/venv/bin/python"
       }
     }

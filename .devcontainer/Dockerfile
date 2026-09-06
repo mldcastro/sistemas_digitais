@@ -11,18 +11,21 @@ RUN apt update && apt install -y \
     git \
     wget \
     curl \
-    # GHDL: Used by TerosHDL for simulation, linting, and syntax checking
+    # VHDL & Verilog Simulators / Linters
     ghdl \
+    gtkwave \
+    verilator \
+    iverilog \
+    # Native Yosys + GHDL Plugin for VHDL Schematic Viewer
     yosys \
     yosys-plugin-ghdl \
-    # GTKWave: Standard waveform viewer
-    gtkwave \
-    # Graphviz: REQUIRED by TerosHDL to render state machine diagrams
+    # Graphviz: REQUIRED by TerosHDL for state machine diagrams
     graphviz \
-    # Python tools: TerosHDL relies heavily on Python for project management
+    # Python tools and headers
     python3 \
     python3-pip \
     python3-venv \
+    python3-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Ubuntu 24.04 strictly enforces PEP 668, so we must use a virtual environment
@@ -35,7 +38,9 @@ ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 # YoWASP puts a 'yosys' wrapper directly into the venv PATH so TerosHDL finds it automatically
 RUN pip install --no-cache-dir \
     vunit-hdl \
-    yowasp-yosys
+    edalize \
+    cocotb \
+    vsg
 
 # Create a non-root user (Standard practice for VS Code Devcontainers)
 ARG USERNAME=ubuntu
