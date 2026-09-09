@@ -2,6 +2,8 @@ FROM ubuntu:24.04
 
 # Prevent interactive prompts during apt installations
 ENV DEBIAN_FRONTEND=noninteractive
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
 
 # Install TerosHDL backend requirements and EDA tools
 RUN apt update && apt install -y \
